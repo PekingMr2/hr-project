@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<!--<META HTTP-EQUIV="Pragma" CONTENT="no-cache">--> 
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<link rel="stylesheet" href="plugins/layui/css/layui.css" />
+		<link rel="stylesheet" href="plugins/layui/css/modules/layer/default/layer.css" />
+		<link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/app.css" />
+	</head>
+	<body>
+		<!--<div class="sample" style="width:400px;height:400px;line-height:400px;font-size:200px;position:fixed;top:0;right:0;left:0;bottom:0;margin:auto;border:none;color:#B2B2B2;border-radius: 50%;-webkit-border-radius:50%;-moz-border-radius:50%;z-index: 1000;text-align: center; ">
+			<div style="font-size:230px;position:relative;left:-120px;opacity:0.6;">DEMO</div>
+		</div>-->
+		<script>
+//			function browserRedirect() {
+//				var winHost = window.location.host;
+//	            var sUserAgent = navigator.userAgent.toLowerCase();
+//	            var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+//	            var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+//	            var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+//	            var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+//	            var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+//	            var bIsAndroid = sUserAgent.match(/android/i) == "android";
+//	            var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+//	            var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+//	            if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+////					window.location = winHost/item/huir/phone/index';					
+//					window.location = './../mobile/index.html';		
+//	            } else {
+////	                document.writeln("pc");
+//	            }
+//	        }
+//	        browserRedirect();
+		</script>
+		<div class="header clearfix">
+			<div class="fl hpadd">
+				<a href="#" class="logo">
+					<img src="img/u123.png" alt="" />
+					<!--GCO China Org.Effectiveness-->
+				</a>
+			</div>
+			<ul class="fl clearfix navMenu">
+				<li class="fl hpadd"><a class="overviewLink" href="./index.html#overview">GCO Overview</a></li>
+				<li class="fl hpadd"><a class="regularLink" href="./index.html#regular">Regular</a></li>
+				<li class="fl hpadd"><a class="projectLink" href="./index.html#project">Project</a></li>
+				<li class="fl hpadd"><a class="individualLink" href="./index.html#individual">Individual</a></li>
+			</ul>
+			<div class="fr uploadFiles" style="margin-top:15px;">
+				<div class="fileName isPhoneHide"></div>
+				<div class="uploadOnLineFile "><input type="button" class="autoLoading" value="Update"/></div>
+				<div class="upload isPhoneHide"><input type="file" class="uploadBtn"  id="fileImport"/>My Data</div><!--accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"-->
+				<span class="glyphicon glyphicon-question-sign quest isPhoneHide" data-toggle="tooltip" data-placement="bottom" data-html="true" title="说明：<br/> 1.请按照正确格式上传数据。<br/> 2.数据上传后即刷新"></span>
+			</div>
+		</div>
+		
+		<!--统计筛选-->
+		<div class="TotalInfoModule">
+			
+		</div>
+		
+		
+		
+		
+		<div class="content clearfix">
+			
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script>
+			var nav = $('.header .navMenu li');
+			for(var ha=0;ha<nav.length;ha++){
+				var HIndex = nav.eq(ha).find('a').attr('href').indexOf('#');
+				var HHash = nav.eq(ha).find('a').attr('href').substring(HIndex);
+				if(window.location.hash==HHash){
+					nav.eq(ha).addClass('active');
+				}
+			}
+		</script>
+		<script src="js/echarts.min.js"></script>
+		<script src="js/jszip.js"></script>
+    	<script src="js/xlsx.js"></script>
+    	<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    	<script src="plugins/layui/lay/dest/layui.all.js"></script>
+    	<script src="js/underscore.js"></script>
+    	<script src="js/macarons.js"></script>
+		<script src="js/options.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/project.js"></script>
+		<script src="js/regular.js"></script>
+		<script src="js/individual.js"></script>
+		<script src="js/overview.js"></script>
+	</body>
+</html>
