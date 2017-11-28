@@ -1,3 +1,5 @@
+//80行
+
 function skipIndividual(){
 	$('.individualLink').parent('li').addClass('active');
 	var individualHtml = '	<div class="individualTag clearfix">														'
@@ -7,7 +9,7 @@ function skipIndividual(){
 						+'				<div class="IChart1 w100"></div>											'
 						+'			</div>												'
 						+'			<div class="fr section relative">												'
-						+'				<div class="title tSpecial">GCO China：Botom 20% Individual Workload breakdown</div>								'
+						+'				<div class="title tSpecial">GCO China：Bottom 20% Individual Workload breakdown</div>								'
 						+'				<div class="IChart2 w100"></div>								'
 						+'			</div>										'
 						+'		</div>											'
@@ -59,10 +61,10 @@ function skipIndividual(){
 		var serviceTypeData1 = _.pluck(ED.excelTag1,ED.ServiceType);
 		serviceTypeData1 = _.uniq(serviceTypeData1,false);
 		var STData2 = _.map(ED.excelTag2,function(item){
-			item['Service Type'] = 'project';
+			item['Service Type'] = 'Project';
 			return item
 		})
-		serviceTypeData2 = ['project'];
+		serviceTypeData2 = ['Project'];
 		
 		//所传数据的所有月份
 		var TotalTime = _.pluck(ED.excelAll,ED.Month);
@@ -77,7 +79,7 @@ function skipIndividual(){
 		
 		//合并regular和project的worktype
 		var serviceTypeData = serviceTypeData1.concat(serviceTypeData2);
-		
+//		serviceTypeData = sortTopOrBottomByClient(serviceTypeData);
 		var excelAll = ED.excelTag1.concat(STData2);
 		
 		var NameAndUniqData = _.map(NameData,function(item){
@@ -100,6 +102,7 @@ function skipIndividual(){
 		});
 		var topData = _.first(sortData,20);
 		var bottomData = _.last(sortData,20);
+		
 		var topName = [];
 		var bottomName = [];
 		

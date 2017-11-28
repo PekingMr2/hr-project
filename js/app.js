@@ -103,6 +103,23 @@ function sortArrByClient(item){
 	return result;
 }
 
+//如果满足需求 就根据用户需求 排序
+function sortTopOrBottomByClient(item){
+	var requirement = ['business service','project','business meeting','travel','management','GCO meeting'];
+	var sameItem = [];
+	var result = [];
+	requirement.forEach(function(require){
+		item.forEach(function(singleItem){
+			if(require.replace(/\s/g,'').toLowerCase() == singleItem.replace(/\s/g,'').toLowerCase()){
+				sameItem.push(singleItem)
+			}
+		})
+	})
+	result = sameItem.concat(item);
+	result = _.uniq(result,false);
+	return result;
+}
+
 function sortObjectByClient(item){
 	var requirement = ['BG','Cross BG','Pan GCO Cross BG','GCO Global','GCO China'];
 	var sameItem = [];
@@ -925,21 +942,24 @@ function getAllPieData(d,groupChart,serviceType,selectService,SubServiceitem,sum
 }
 
 //获取单个饼图数据
-function getSinglePieData(d,groupChart,serviceType,selectService,SubServiceitem,sumParam){
+function getSinglePieData(d,groupChart,serviceType,selectService,ServiceItem,sumParam){
 	var obj = {}
 //	console.log(d)
-	obj[serviceType] = selectService.toLowerCase();
-	var teamData = _.filter(d,function(item){
-		return item[serviceType].toLowerCase()==selectService.toLowerCase();
+
+//	obj[serviceType] = selectService.toLowerCase();
+//	var teamData = _.filter(d,function(item){
+//		return item[serviceType].toLowerCase()==selectService.toLowerCase();
+//	});
+	var teamData = d;
+
+	var st = _.pluck(teamData,ServiceItem);
+//	console.log(st)
+	st = _.uniq(st,function(item){
+		return item.replace(/\s/g,'').toLowerCase();
 	});
-//	console.log(teamData)
-	var st = _.pluck(teamData,SubServiceitem);
-//	console.log(st)
-	st = _.uniq(st,false);
-//	console.log(st)
 	var serviceData = _.map(st,function(item){
 		var sd = _.filter(teamData,function(obj){
-			return obj[SubServiceitem] == item
+			return obj[ServiceItem].replace(/\s/g,'').toLowerCase() == item.replace(/\s/g,'').toLowerCase()
 		})
 		sd = _.pluck(sd,sumParam);
 		return {
@@ -1369,8 +1389,8 @@ var wb;
 var autoExcelTag1 = [];
 var autoExcelTag2 = [];
 var autoExcelAll = [];
-var autoUrl = "./file/test.xlsx";
-var fileName = 'test.xlsx';
+var autoUrl = "./file/GCO-Data.xlsx";
+var fileName = 'GCO-Data.xlsx';
 var EDf = fileImport;
 function fetchAB(url, cb) {
     var xhr = new XMLHttpRequest;

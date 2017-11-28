@@ -81,7 +81,7 @@ function skipRegular(){
 		DrawOVBar(GCORData2,'RChart2',IndiGcoBar,{'tooltip':'false','legend':{'left':'center','top':20,'orient':'horizontal'},'trigger':'xAxis','grid':{x:80,x2:40,y:100,y2:40},'nm':{'xname':'','nameGap':30,'xnameLocation':'middle','xnameTextStyle':{'fontSize':'18','fontWeight':'bold'}},'axis':{'interval':'auto'}});
 
 		//三组图 9个
-		var RD3 = getMoreBarChartData(ED.excelTag1,ED.Team,ED.Month,ED.ServiceType,ED.EmployeeNO,ED.PchartValue,ED.Stand,ED.StandY,ED.ServiceType,ED.ServiceTypeShow,ED.SubServiceitem);
+		var RD3 = getMoreBarChartData(ED.excelTag1,ED.Team,ED.Month,ED.ServiceType,ED.EmployeeNO,ED.PchartValue,ED.Stand,ED.StandY,ED.ServiceType,ED.ServiceTypeShow,ED.ServiceItem);
 		
 		//第三组图
 		teamGroupData3 = teamChart3(ED.excelTag1,ED.ServiceItem,ED.Team,ED.TeamChildren,ED.EmployeeNO,ED.PchartValue,'false');
